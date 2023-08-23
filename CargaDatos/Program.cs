@@ -20,50 +20,76 @@ namespace CargaDatos
 
         static void Main(string[] args)
         {
-            int index = 0;
-            foreach (string arg in args)
+
+            if (args.Length == 0)
             {
-                conEncabezado = true;
-
-                // Hacer algo
-                if (arg.Equals("-ne"))
-                    conEncabezado = false;
-
-                if (arg.Equals("-in"))
-                {
-                    filein = args[index + 1];
-                    var file = Path.GetFileName(filein);
-                    var path = Path.GetDirectoryName(filein);
-                    if (string.IsNullOrEmpty(path)) path = System.IO.Directory.GetCurrentDirectory();
-                    filein = $"{path}\\{file}";
-
-                    if (!File.Exists(filein))
-                    {
-                        Console.WriteLine("Archivo origen no existe!");
-                        Environment.Exit(1);
-                    }
-                }
-
-                if (arg.StartsWith("-out"))
-                {
-                    lnofileout = true;
-                    fileout = args[index + 1];
-                    var path = Path.GetDirectoryName(fileout);
-                    fileout = Path.GetFileNameWithoutExtension(fileout);
-
-                    if (string.IsNullOrEmpty(path)) path = System.IO.Directory.GetCurrentDirectory();
-                    fileout = $"{path}\\{fileout}.txt";
-                }
-                index++;
+                Console.WriteLine("No se ha proporcoionado el archivo a procesar");
             }
 
-            if (!lnofileout)
-            {
-                var file = Path.GetFileName(filein);
-                var path = Path.GetDirectoryName(filein);
-                fileout = $"{path}\\{file}.txt";
+            filein = args[0];
+            var file = Path.GetFileName(filein);
+            var path = Path.GetDirectoryName(filein);
+            if (string.IsNullOrEmpty(path)) path = System.IO.Directory.GetCurrentDirectory();
+            filein = $"{path}\\{file}";
 
+            if (!File.Exists(filein))
+            {
+                Console.WriteLine("Archivo origen no existe!");
+                Environment.Exit(1);
             }
+
+            // Archivo salida
+            path = Path.GetDirectoryName(filein);
+            fileout = Path.GetFileNameWithoutExtension(filein);
+            if (string.IsNullOrEmpty(path)) path = System.IO.Directory.GetCurrentDirectory();
+            fileout = $"{path}\\{fileout}.txt";
+
+            conEncabezado = true;
+
+            //int index = 0;
+            //foreach (string arg in args)
+            //{
+            //    conEncabezado = true;
+            //
+            //    // Hacer algo
+            //    if (arg.Equals("-ne"))
+            //        conEncabezado = false;
+            //
+            //    if (arg.Equals("-in"))
+            //    {
+            //        filein = args[index + 1];
+            //        var file = Path.GetFileName(filein);
+            //        var path = Path.GetDirectoryName(filein);
+            //        if (string.IsNullOrEmpty(path)) path = System.IO.Directory.GetCurrentDirectory();
+            //        filein = $"{path}\\{file}";
+            //
+            //        if (!File.Exists(filein))
+            //        {
+            //            Console.WriteLine("Archivo origen no existe!");
+            //            Environment.Exit(1);
+            //        }
+            //    }
+            //
+            //    if (arg.StartsWith("-out"))
+            //    {
+            //        lnofileout = true;
+            //        fileout = args[index + 1];
+            //        var path = Path.GetDirectoryName(fileout);
+            //        fileout = Path.GetFileNameWithoutExtension(fileout);
+            //
+            //        if (string.IsNullOrEmpty(path)) path = System.IO.Directory.GetCurrentDirectory();
+            //        fileout = $"{path}\\{fileout}.txt";
+            //    }
+            //    index++;
+            //}
+            //
+            //if (!lnofileout)
+            //{
+            //    var file = Path.GetFileName(filein);
+            //    var path = Path.GetDirectoryName(filein);
+            //    fileout = $"{path}\\{file}.txt";
+            //
+            //}
 
             CargaDatos(filein, fileout);
         }
