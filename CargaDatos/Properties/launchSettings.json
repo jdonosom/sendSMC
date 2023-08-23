@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CargaDatos": {
+      "commandName": "Project",
+      "commandLineArgs": "-e -in ReporteDeMarcaciones_20230822213140_export.csv -out marc-202207-202308"
+    }
+  }
+}
