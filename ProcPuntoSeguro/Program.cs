@@ -153,7 +153,9 @@ namespace ProcPuntoSeguro
             Console.Clear();
             var msg = $"{AppDomain.CurrentDomain.FriendlyName} - Xxauro 2020\r\n" +
                 "Desarrollado por José Patricio Donoso Moscoso, email: jpdonosom@gmail.com\r\n" +
+                "Procesa las marcaciones informadas por Punto Seguro\n\r" +
                 "Xxauro 2020 derechos reservados.\r\n\r\n";
+                
 
             Console.Write(msg);
 

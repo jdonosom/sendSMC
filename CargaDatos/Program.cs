@@ -120,7 +120,7 @@ namespace CargaDatos
                     var Id = int.Parse(datos[0]);
                     var Fecha = Convert.ToDateTime(datos[1]).ToString("yyyyMMdd");
                     var Time = Convert.ToDateTime(datos[2]).ToString("HHmm");
-                    var Tipo = datos[3].Equals("Salida") ? 0 : 1;
+                    var Tipo = datos[3].Contains("Salida") ? 0 : 1;
 
                     // Console.WriteLine($"{Id} {Fecha} {Time} {Tipo}");
                     Console.SetCursorPosition(pos.Left, pos.Top + 2);
