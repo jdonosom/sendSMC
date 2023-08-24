@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ProcPuntoSeguro": {
+      "commandName": "Project",
+      "commandLineArgs": "AsistenciaPuntoSeguro.csv"
+    }
+  }
+}

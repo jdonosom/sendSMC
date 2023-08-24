@@ -20,6 +20,7 @@ namespace CargaDatos
 
         static void Main(string[] args)
         {
+            DisplayOwner();
 
             if (args.Length == 0)
             {
@@ -101,7 +102,10 @@ namespace CargaDatos
 
             string buffer = null;
             Console.WriteLine($"Se procesarán {lines.Count()} marcaciones.");
-
+            Console.WriteLine($"Presione una tecla para continuar...");
+            var pos = Console.GetCursorPosition();
+            Console.ReadKey();
+            
             int nline = 0;
             foreach (string line in lines)
             {
@@ -118,10 +122,13 @@ namespace CargaDatos
                     var Time = Convert.ToDateTime(datos[2]).ToString("HHmm");
                     var Tipo = datos[3].Equals("Salida") ? 0 : 1;
 
-                    Console.WriteLine($"{Id} {Fecha} {Time} {Tipo}");
+                    // Console.WriteLine($"{Id} {Fecha} {Time} {Tipo}");
+                    Console.SetCursorPosition(pos.Left, pos.Top + 2);
+                    Console.Write($"Registros procesados: {nline}");
                     var newLine = $"{Id} {Fecha} {Time} {Tipo}{(nline == lines.Count() - 1 ? "" : "\n")}";
                     buffer += newLine;
                 }
+                
                 nline++;
             }
 
@@ -131,6 +138,22 @@ namespace CargaDatos
                 byte[] newLine = new UTF8Encoding(true).GetBytes(buffer);
                 fs.Write(newLine, 0, newLine.Length);
             }
+        }
+
+
+        /// <summary>
+        /// Desplegar datos del dueño de la solución
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
+         private static void DisplayOwner()
+        {
+            Console.Clear();
+            var msg = $"{AppDomain.CurrentDomain.FriendlyName} - Xxauro 2020\r\n" +
+                "Desarrollado por José Patricio Donoso Moscoso, email: jpdonosom@gmail.com\r\n" +
+                "Xxauro 2020 derechos reservados.\r\n\r\n";
+
+            Console.Write(msg);
+
         }
     }
 }
