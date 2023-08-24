@@ -146,6 +146,10 @@ namespace ProcPuntoSeguro
                 fs.Write(newLine, 0, newLine.Length);
             }
 
+            Console.WriteLine($"Se ha generado el archivo de carga a SMC en la siguiente ruta: {fileout}.");
+            Console.WriteLine($"Presione una tecla para terminar...");
+            Console.ReadKey();
+
         }
 
         private static void DisplayOwner()
@@ -153,10 +157,8 @@ namespace ProcPuntoSeguro
             Console.Clear();
             var msg = $"{AppDomain.CurrentDomain.FriendlyName} - Xxauro 2020\r\n" +
                 "Desarrollado por José Patricio Donoso Moscoso, email: jpdonosom@gmail.com\r\n" +
-                "Procesa las marcaciones informadas por Punto Seguro\n\r" +
+                "Procesa las marcaciones informadas por Punto Seguro y las prepara para la carga en Sistemas SMC\n\r" +
                 "Xxauro 2020 derechos reservados.\r\n\r\n";
-                
-
             Console.Write(msg);
 
         }

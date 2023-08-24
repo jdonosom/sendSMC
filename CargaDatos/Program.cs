@@ -138,6 +138,10 @@ namespace CargaDatos
                 byte[] newLine = new UTF8Encoding(true).GetBytes(buffer);
                 fs.Write(newLine, 0, newLine.Length);
             }
+
+            Console.WriteLine($"Se ha generado el archivo de carga a SMC en la siguiente ruta: {fileout}.");
+            Console.WriteLine($"Presione una tecla para terminar...");
+            Console.ReadKey();
         }
 
 
@@ -150,6 +154,7 @@ namespace CargaDatos
             Console.Clear();
             var msg = $"{AppDomain.CurrentDomain.FriendlyName} - Xxauro 2020\r\n" +
                 "Desarrollado por José Patricio Donoso Moscoso, email: jpdonosom@gmail.com\r\n" +
+                "Procesa las marcaciones informadas por BioTime y las prepara para la carga en Sistemas SMC\n\r" +
                 "Xxauro 2020 derechos reservados.\r\n\r\n";
 
             Console.Write(msg);
