@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataLayer;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -17,6 +18,7 @@ namespace CargaDatos
         static string filein;
         static bool conEncabezado;
         static bool lnofileout;
+        static BaseDatos DB;
 
         static void Main(string[] args)
         {
@@ -97,6 +99,8 @@ namespace CargaDatos
 
         private static void CargaDatos(string filecsv, string fileout)
         {
+            BaseDatos DB = new BaseDatos();
+
             IEnumerable<string> lines =
                 File.ReadAllLines(filecsv);
 
@@ -105,7 +109,7 @@ namespace CargaDatos
             Console.WriteLine($"Presione una tecla para continuar...");
             var pos = Console.GetCursorPosition();
             Console.ReadKey();
-            
+
             int nline = 0;
             foreach (string line in lines)
             {
@@ -127,8 +131,14 @@ namespace CargaDatos
                     Console.Write($"Registros procesados: {nline}");
                     var newLine = $"{Id} {Fecha} {Time} {Tipo}{(nline == lines.Count() - 1 ? "" : "\n")}";
                     buffer += newLine;
+
+                    DB.Conectar();
+                    DB.CrearComando($"INSERT INTO SGF_ASIAN..Registro(Id, Fecha, Hora, TipoMarca) VALUES({Id}, '{Fecha}', '{Time}', {Tipo})");
+                    DB.EjecutarComando();
+
+
                 }
-                
+
                 nline++;
             }
 
@@ -149,7 +159,7 @@ namespace CargaDatos
         /// Desplegar datos del dueño de la solución
         /// </summary>
         /// <exception cref="NotImplementedException"></exception>
-         private static void DisplayOwner()
+        private static void DisplayOwner()
         {
             Console.Clear();
             var msg = $"{AppDomain.CurrentDomain.FriendlyName} - Xxauro 2020\r\n" +

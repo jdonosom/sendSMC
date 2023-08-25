@@ -6,6 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Reference Include="SGFDataLayer">
+      <HintPath>..\..\..\..\XERP App\SGFDataLayer\SGFDataLayer.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="AsistenciaPuntoSeguro.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

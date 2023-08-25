@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Farmacia Comuniraria\Common\DataLayer\DataLayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="ReporteDeMarcaciones_20230822213140_export.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

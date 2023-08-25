@@ -5,7 +5,9 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SendSMC", "CargaDatos\SendSMC.csproj", "{1A65D951-BF28-4106-8AAB-67BC674EAE41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcPuntoSeguro", "ProcPuntoSeguro\ProcPuntoSeguro.csproj", "{2F766305-74A4-4C1C-B6C8-E2B959DB7C55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProcPuntoSeguro", "ProcPuntoSeguro\ProcPuntoSeguro.csproj", "{2F766305-74A4-4C1C-B6C8-E2B959DB7C55}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLayer", "..\..\..\Farmacia Comuniraria\Common\DataLayer\DataLayer.csproj", "{F8998C03-3008-4697-A541-DC75EB9F444E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{2F766305-74A4-4C1C-B6C8-E2B959DB7C55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F766305-74A4-4C1C-B6C8-E2B959DB7C55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F766305-74A4-4C1C-B6C8-E2B959DB7C55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8998C03-3008-4697-A541-DC75EB9F444E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8998C03-3008-4697-A541-DC75EB9F444E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8998C03-3008-4697-A541-DC75EB9F444E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8998C03-3008-4697-A541-DC75EB9F444E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
